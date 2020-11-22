@@ -1,0 +1,22 @@
+version: "3.7"
+
+
+
+services:
+  exchange:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      - AWS_ACCESS_KEY_ID=something_random__will_automatically_be_filled_in_aws
+      - AWS_SECRET_ACCESS_KEY=docker_throws_errors_if_its_not_set
+      - NOTIFICATION_SERVICE=TWITTER
+
+  dynamodb:
+    image: amazon/dynamodb-local
+    hostname: dynamodb-local
+    container_name: dynamodb-local
+    ports:
+      - "8042:8000"
