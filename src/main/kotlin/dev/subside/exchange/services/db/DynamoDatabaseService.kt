@@ -36,7 +36,6 @@ class DynamoDatabaseService : DatabaseService {
             createDynamoDb()
         } catch (e: ResourceInUseException) {
             println("Database already exists.")
-            println("ASDASDASD")
         }
     }
 
