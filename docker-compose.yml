@@ -10,9 +10,9 @@ services:
     env_file:
       - .env
     environment:
-      - AWS_ACCESS_KEY_ID=something_random__will_automatically_be_filled_in_aws
+      - DYNAMO_ENDPOINT=http://dynamodb-local:8000
+      - AWS_ACCESS_KEY_ID=in_debug_mode_we_dont_need_keys
       - AWS_SECRET_ACCESS_KEY=docker_throws_errors_if_its_not_set
-      - NOTIFICATION_SERVICE=TWITTER
 
   dynamodb:
     image: amazon/dynamodb-local
